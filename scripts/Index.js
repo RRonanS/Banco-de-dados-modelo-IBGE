@@ -1,3 +1,4 @@
+// Este arquivo .js serve basicamente para ler inputs de arquivos .csv e armazenar sua leitura no local storage
 var fileInput2 = document.getElementById("csv-C"),
     data = "teste";
     readFile1 = function () {
