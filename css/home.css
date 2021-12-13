@@ -1,1 +1,369 @@
-//test
+*{
+    box-sizing: border-box;
+}
+
+html{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	width: 100%;
+	height: 100%;
+  background: #1abc9c;
+	margin: 0;	
+}
+
+.header{
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    background-size: cover;
+    height: 140px;
+}
+
+.img1{
+    width: 150px;
+    height: auto;
+}
+
+.img2{
+    width: 150px;
+    height: auto;
+    background: gray;
+    border-radius: 100%;
+}
+
+.img3{
+  width: 50px;
+}
+
+.img4{
+  width: 10px;
+}
+
+.botaoSelecionaServ{
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  background: none;
+}
+.HomeButton{
+  cursor: pointer;
+  border: none;
+  background: none;
+  margin-top: 20px;
+  width: fit-content;
+  height: fit-content;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.file{
+  margin: 30px;
+}
+.csv{
+  border-radius: 20px;
+  cursor: pointer;
+  background: palevioletred;
+}
+
+.HomeButton2{
+  cursor: pointer;
+  border: white;
+  color: white;
+  border-radius: 20px;
+  margin-top: 50px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 40px;
+  width: fit-content;
+  height: fit-content;
+  background: palevioletred;
+}
+
+.UserButton{
+  border: white;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  width: fit-content;
+  height: fit-content;
+  background: palevioletred;
+}
+
+.WorkerButton{
+  border: white;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  width: fit-content;
+  height: fit-content;
+  background: palevioletred;
+}
+
+.HomeButton3{
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 20px;
+  margin-top: 50px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 40px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.HelpButton{
+  background: none;
+  border: none;
+}
+.img4{
+  cursor: pointer;
+  width: 120px;
+}
+
+.ppSup_UserPage{
+  display: none;
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.ppSup_WorkerPage{
+  display: none;
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ppSup_ListaPage{
+  display: none;
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+}
+
+.ppSup_StatisticPage{
+  display: none;
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+}
+
+.ppSup_InsertAdress{
+  display: none;
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+}
+
+.ppSup_DeleteAdress{
+  display: none;
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+} 
+
+.ppSup_InsertResidence{
+  display: none;
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+}
+
+.pp_CepPage{
+  display: none;
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+}
+
+.ppSup_CepPage{
+  display: none;
+  
+}
+
+.ppRetorno{
+  display: none;
+}
+
+.StatisticReturn{
+  margin-left: 350px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: black;
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+  background:paleturquoise;
+  border-radius: 20px;
+  border: white;
+}
+
+.cep{
+  border-radius: 20px;
+  background: palevioletred;
+}
+
+.title_txtBox{
+    margin-left: 450px;
+    text-align: center;
+    width: 400px;
+    padding: auto 1px auto 1px;
+}
+.title_txtBox label{
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 70%;
+}
+
+
+.input_txtBox input{
+    border-color: antiquewhite;
+    border-radius: 10px;
+}
+
+.txtBox{
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.txtBox:hover{
+    background: paleturquoise;
+}
+
+.sol_lista{
+  color: black;
+  background: paleturquoise;
+  border-radius: 20px;
+}
+.botao1{
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.retornoUserRua{
+  color: black;
+  margin-top: 50px;
+  border-radius: 20px;
+  background: paleturquoise;
+  width: 100%;
+  height: 100%; 
+}
+
+.selectServico{
+  color:white;
+  background: palevioletred;
+  border-radius: 20px;
+}
+.popup{
+  border-radius: 10px;
+  font-family: arial;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 10% auto;
+  padding: 20px;
+  background: white;
+  position: relative;
+}
+
+
+.close{
+  color: white;
+  font-size: 150%;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  background: palevioletred;
+  border-radius: 10px;
+}
+
+
+.p{
+  color: black;
+  padding: 5px;
+  background: paleturquoise;
+  border-radius: 10px;
+}
+
+
+.ChoosingFile{
+  display: none;
+}
+
+.HomePage{
+  display: block;
+}
+.UserPage{
+  display: none;
+}
+
+.WorkerPage{
+  display:none;
+}
+
+.UserCep{
+  display:none;
+}
+
+.ListaServico{
+  display: none;
+}
+
+.WorkerStatistic{
+  display: none;
+}
+
+.InsertAdress{
+  display: none;
+}
+
+.DeleteAdress{
+  display: none;
+}
+
+.InsertResidence{
+  display: none;
+}
+
+.UserRua{
+  display: none;
+}
+.WorkerSol{
+  display: none;
+}
