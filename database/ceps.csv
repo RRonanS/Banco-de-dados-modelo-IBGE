@@ -1,1 +1,4 @@
-//test
+cep, estado, cidade, bairro, rua, numero, apartamento, num_moradores, lista_moradores(Nome, genero, idade)
+49042123, Sergipe, Aracaju, Sao conrado, Rua B, 10, false, 2, (Pedro, Masc, 20), (Marcos, Masc, 40)
+49042999, Sergipe, Aracaju, Centro, Rua Central, 22, false, 3, (Pedro, Masc, 20), (Marcos, Masc, 40), (Fulana, Fem, 29)
+49000000, Sergipe, Propria, Central, Baixo sao francisco, 0, false, 0
