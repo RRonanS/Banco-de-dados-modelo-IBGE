@@ -299,6 +299,9 @@ input[type="file"] {
   position: relative;
 }
 
+.ppHeader{
+  color: black;
+}
 
 .close{
   color: white;
