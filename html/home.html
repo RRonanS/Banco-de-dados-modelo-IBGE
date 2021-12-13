@@ -1,1 +1,503 @@
-//test
+<!DOCTYPE html>
+<html lang="pt-br">
+      
+    
+    <head>
+        <link rel="stylesheet" href="../css/home.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Banco de Dados</title>
+    </head>
+    <body>
+
+      
+
+    <div class="HomePage" id="HomePage">
+       <div class="header">
+            <h1>BANCO DE DADOS IBGE</h1>
+            <p>Projeto Acadêmico</p>
+            <p>Estruturas de Dados</p>
+            
+            <img class='img1' src="../Avatares/avatar.png" alt="Avatar male">
+            <img class='img1' src="../Avatares/avatarF.png" alt="Avatar female">
+            <img class='img2' src="../Avatares/avatarK.png" alt="Avatar kid">
+            <div class='menu'>
+              <button class="HomeButton2" id="HomeToUserPage">Acesso Usuário</button>
+              <button class="HomeButton2" id="HomeToWorkerPage">Acesso Colaborador</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="UserPage">
+      <div class="header">
+                <img class='img1' src="../Avatares/avatar.png" alt="Avatar male">
+                <img class='img1' src="../Avatares/avatarF.png" alt="Avatar female">
+                <img class='img2' src="../Avatares/avatarK.png" alt="Avatar kid">
+                <h1>Página de Usuário</h1>
+                <p style="margin-right: 2%;">Comandos disponíveis</p>
+                <div class='menu'>
+                  <button class="UserButton" id="UserToCepPage">Pesquisa de Cep</button>
+                  <button class="UserButton" id="UserToRuaPage">Pesquisa por cep</button>
+                  <button class="UserButton" id="UserToListServPage">Agendamento de serviço</button>
+                </div>
+                <button class="HomeButton3" id="UserToHome"><img title="Ir para página inicial"
+                src="../Avatares/home.png"class="img3"  alt="Home icon"> </button>
+                <button class="HelpButton" id="UserSup"> <img class="img4" 
+                src="../Avatares/help.png" alt="help icon"></button>
+      </div>
+            
+      <div class="ppSup_UserPage" id="ppSup_UserPage">
+        <div class="popup">
+          <div class="close" id="closerUserSup">x</div>
+            <div class="popup-content">
+              <h2>Comandos</h2>
+                <p class="p">Pesquisa de Cep: A partir dos dados inseridos, faz a busca do CEP que se aproxima mais do seu CEP original.</p>
+                <p class="p">Pesquisa por Cep: A partir do cep inserido, busca no sistema a rua cadastrada.</p>
+                <p class="p">Agendamento de serviço: A partir dos dados inseridos, faz o agendamento do serviço na fila.</p>
+            </div>
+        </div>
+     </div>
+      
+    </div>
+    
+    <div class="WorkerPage">
+      <div class="header">
+                <img class='img1' src="../Avatares/engrenagem.png" alt="Logo engrenagem">
+                <img class='img1' src="../Avatares/Hand.png" alt="Logo work">
+
+                <h1>Página de Colaborador</h1>
+                <p>Comandos disponíveis</p>
+                <div class='menu'>
+                  <button class="WorkerButton" id="workerToStatisticPage" onclick="app.estatisticaBase()">Acesso à Estatística</button>
+                  <button class="WorkerButton" id="workerToInsertAdress">Alterações de endereços</button>
+                  <button class="WorkerButton" id="workerToInsertResidence">Consulta de residentes</button>
+                  <button class="WorkerButton" id="workerToSolicitacoes" onclick="app.updateSolLis()">Verificar solicitações</button>
+                  
+                </div>
+                  <button class="HomeButton3" id="workerToHomePage"><img title="Ir para página inicial"
+                  src="../Avatares/home.png"class="img3"  alt="Home icon"> </button>
+                  <button class="HelpButton" id="workerSup"> <img class="img4" 
+                  src="../Avatares/help.png" alt="help icon"></button>
+            </div>
+           
+            <div class="ppSup_WorkerPage" id="ppWorkerSup">
+                <div class="popup" id="ppWorkerSup">
+                    <div class="close" id="closeWorkerSup">x</div>
+                    <div class="popup-content">
+                        <h2>Comandos</h2>
+                        <p class="p">Acesso aos números do banco de dados por região, estado, cidade, bairro, rua e domicílios </p>
+                        <p class="p">Alteração de endereço: A partir dos dados inseridos, faz a alteração do endereço do usuário no sistema.</p>
+                        <p class="p">Inserção de novos domicílios no banco de dados.</p>
+                    </div>
+                </div>
+     </div>
+    </div>
+
+    <div class="WorkerSol">
+        <div class="header">
+            <img class="img1" src="../Avatares/servicos.png" alt="prancheta">
+            <h1>Lista de Solicitações</h1>
+            <div class = "sol_lista" id="sol_lista">
+              
+            </div>
+            <button class="HomeButton3" id="WorkerSolToHomePage"><img title="Ir para página inicial"
+                src="../Avatares/home.png"class="img3"  alt="Home icon"> </button>
+        </div>
+    </div>
+
+    <div class="UserRua">
+        <div class="header">
+            <img class='img1' src="../Avatares/lupa.png" alt="Lupa">
+            <h1>Busca por CEP</h1>
+            <p>Insira os dados pedidos</p>
+            <form class="formulario">
+
+                <div class="title_txtBox">
+                    <label for="ruabusca">Cep desejado:</label> 
+                </div>
+
+                <div class="input_txtBox">
+                    <input class="txtBox" type="text" name="ruabusca" id="ruaCepbusca" onchange="app.buscaRua()">
+                </div>
+                <div class="retornoUserRua">
+                <div><text>O endereço buscado é:</text></div>
+                  <div>
+                      <text style="background: palevioletred; border-radius:20px;" id="endereco"></text>
+                  </div>
+                  <text>* Caso não encontre seu endereço, você pode solicitar sua adição na aba de agendamento.</text>
+                </div>
+
+
+            </form>
+            <div class="ppSup_UserPage" id="ppSup_UserRuaPage">
+                <div class="popup">
+                  <div class="close" id="closeUserRuaSup">x</div>
+                    <div class="popup-content">
+                      <h2 style="color:black;">Comandos</h2>
+                        <p class="p">Pesquisa por Cep: A partir do cep inserido, busca no sistema a rua cadastrada.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="HomeButton3" id="RuaToHomePage"><img title="Ir para página inicial"
+                src="../Avatares/home.png"class="img3"  alt="Home icon"> </button>    
+            <button class="HelpButton" id="UserRuaSup"> <img class="img4" 
+            src="../Avatares/help.png" alt="help icon"></button>
+        </div>
+    </div>
+
+    <div class="UserCep">
+      <div class='header'>
+            <img class='img1' src="../Avatares/lupa.png" alt="Lupa">
+            <h1>Busca de CEP</h1>
+            <p>Insira os dados pedidos</p>
+            <form class="formulario">
+                
+                <div class="title_txtBox">
+                    <label for="rua">Endereço  da residência:</label> 
+                </div>
+
+                <div class="input_txtBox">
+                    <input class="txtBox" type="text" name="rua" id="rua">
+                </div>
+
+                <div class="title_txtBox">
+                    <label for="Número da residência">Número da residência:</label>
+                </div>
+
+                <div class="input_txtBox">
+                    <input class="txtBox" type="number" name="num" id="num"> 
+                </div>
+                    
+
+                <div class="title_txtBox">
+                    <label for="cidade">Cidade:</label>
+                </div>
+
+                <div class="input_txtBox">
+                    <input class="txtBox" type="text" name="cidade" id="city">
+                </div>
+
+                <div class="title_txtBox"> <label>Estado da residência</label> </div>
+                    <select id="estado" name="estado"class="txtBox">
+                        <option selected disabled value="">Selecione</option>
+                        <option>Acre</option>
+                        <option>Alagoas</option>
+                        <option>Amapá</option>
+                        <option>Amazonas</option>
+                        <option>Bahia</option>
+                        <option>Ceará</option>
+                        <option>Distrito Federal</option>
+                        <option>Espírito Santo</option>
+                        <option>Goiás</option>
+                        <option>Maranhão</option>
+                        <option>Mato Grosso</option>
+                        <option>Mato Grosso do Sul</option>
+                        <option>Minas Gerais</option>
+                        <option>Pará</option>
+                        <option>Paraíba</option>
+                        <option>Paraná</option>
+                        <option>Pernambuco</option>
+                        <option>Piauí</option>
+                        <option>Rio de Janeiro</option>
+                        <option>Rio Grande do Norte</option>
+                        <option>Rio Grande do Sul</option>
+                        <option>Rondônia</option>
+                        <option>Roraima</option>
+                        <option>Santa Catarina</option>
+                        <option value="Sao Paulo">São Paulo</option>
+                        <option>Sergipe</option>
+                        <option>Tocantins</option>
+                        </select>
+                
+                    
+            </form>
+            <div>
+              <button class="botao1" id="cepSend" onclick="app.busca()"> Pesquisar </button>
+            </div>
+             <button class="HomeButton3" id="cepToHomePage"><img title="Ir para página inicial"
+              src="../Avatares/home.png"class="img3"  alt="Home icon"> </button>
+              <button class="HelpButton" id="cepSup"> <img class="img4" 
+              src="../Avatares/help.png" alt="help icon"></button>
+        </div>
+            <div class="pp_CepPage" id="ppCep">
+                <div class="popup">
+                    <div class="close" id="closeCepPP">x</div>
+                    <div class="popup-content">
+                      <div class="ppSup_CepPage" id="ppCepSup">
+                        <h1>Comandos</h1>
+                        <p class="p">Nesta página, o usuário é capaz de pesquisar seu CEP. Quanto mais informações o usuário fornecer, mais precisa será
+                            a pesquisa.</p>
+                        <p class="p">Só será fornecido o CEP exato, caso o usuário esteja cadastrado.</p>
+                      </div>
+                      <div class="ppRetorno" id="ppCepRetorno">
+                        <h1>O CEP pesquisado é:</h1>
+                        <h2 class="cep" id="cep">
+                            <p id="Busca">Cep Não encontrado!</p>
+                        </h2>
+                      </div>
+                    </div>
+                </div>
+                  
+        </div>
+              
+    </div>
+      
+    </div>
+
+    <div class="ListaServico">
+        <div class="header">
+            <div class="img"><img class="img1" src="../Avatares/lista.png" alt="lista de pedidos"></div>
+            
+            <div class="txt">
+                <h1>Pedidos de Serviço</h1>
+            </div>
+            <div class="f0" id="f0">
+                <form class="formSelectServico">
+                  <div class="s1"><label>Tipo de Serviço</label></div>
+                  <select class="selectServico"  id="Tipo">
+                    <option selected disabled value="">Selecione</option>
+                    <option value="1">Adicionar Endereço</option>
+                    <option value="2">Remover Endereço</option>
+                  </select>
+                  <div>
+                    <textarea id="sol_desc" placeholder="Digite seu pedido com clareza"></textarea>
+                </div>
+                </form>
+                <div>
+                  <button class="botaoSelecionaServ" id="botaoConfirmServ" value="Selecionar serviço" 
+                  onclick="app.nova_sol()"><img class="img4" src="../Avatares/check.png" alt="Selecionar serviço" title="Selecionar serviço"></button>
+                </div>
+                <button class="HomeButton3" id="agendaServToHomePage"><img title="Ir para página inicial"
+                src="../Avatares/home.png"class="img3"  alt="Home icon"> </button>
+                <button class="HelpButton" id="agendaServSup"> <img class="img4" 
+                src="../Avatares/help.png" alt="help icon"></button>
+            </div>
+        </div>
+            <div class="ppSup_ListaPage" id="agendaServPP">
+                <div class="popup">
+                    <div class="close" id="closeAgendaServSup">x</div>
+                    <div class="popup-content">
+                        <h2>Suporte</h2>
+                        <p class="p">Usuário, informe o serviço que deseja.</p>
+                        <p class="p">A partir do serviço requerido, preencha os campos com as informações pedidas.
+                        </p>
+                        <p class="p">Seu serviço entrará na fila e será executado por ordem de pedido.</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="WorkerStatistic">
+       <div class="header">
+                <img class='img1' src="../Avatares/Statistics.png" alt="Logo engrenagem">
+
+                <h1 style="margin-left: 60px;">Página de Estatística</h1>
+                 <div class="StatisticReturn">
+                    <h3>Estatísticas gerais do sistema</h3>
+                    <div>
+                        <label>Quantidade total de ceps cadastrados:</label>
+                        <text id="estatisticaTotCeps"> 00</text>
+                    </div>
+
+                    <div>
+                        <label>Quantidade total de moradores cadastrados:</label>
+                        <text id="estatisticaTotMoradores"> 00</text>
+                    </div>
+                    
+                    <div>
+                        <label>Idade média dos cidadãos:</label>
+                        <text id="estatisticaIdadeMedia"> 00 anos</text>
+                    </div>
+
+                    <div>
+                        <label>Propoção homens vs mulheres:</label>
+                        <text id="estatisticaPropMascFem"> 00% por 00%</text>
+                    </div>
+                  </div>
+                <button class="HomeButton3" id="statisticToHomePage"><img title="Ir para página inicial"
+                src="../Avatares/home.png"class="img3"  alt="Home icon"> </button>
+                <button class="HelpButton" id="statisticSup"> <img class="img4" 
+                src="../Avatares/help.png" alt="help icon"></button>
+            </div>
+            <div class="ppSup_StatisticPage" id="statisticSupPP">
+                <div class="popup">
+                    <div class="close" id="closePpStatistic">x</div>
+                    <div class="popup-content">
+                        <h2>Suporte</h2>
+                        <p class="p">Preencha os campos com os indicativos que deseja visualizar.</p>
+                        <p class="p">Só é possível escolher um campo por linha, então, escrever na caixa de Estado com o botão Região impossibilita a operação, por exemplo.</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="InsertAdress">
+      <div class='header'>
+            <img class='img1' src="../Avatares/Map.png" alt="MapPointer">
+            <h1>Alterações de endereços</h1>
+            <p>Insira os dados pedidos</p>
+
+            <input type="number" id="alteracep" placeholder="Digite o cep" onchange="app.updateAlteraCep()">
+            <text id="error"></text>
+            <button class="botao1" onclick="app.adicionaCep()">Adicionar cep</button> 
+            <button class="botao1" onclick="app.deletaCep()">Remover cep</button>
+            <div>
+                <input class="txtBox" type="text" id="alteraEstado" placeholder="Estado" onchange="app.updateCep(0)">
+                <input class="txtBox" type="text" id="alteraCidade" placeholder="Cidade" onchange="app.updateCep(1)">
+                <input class="txtBox" type="text" id="alteraBairro" placeholder="Bairro" onchange="app.updateCep(2)">
+                <input class="txtBox" type="text" id="alteraRua" placeholder="Rua" onchange="app.updateCep(3)">
+                <input class="txtBox" type="number" id="alteraNumero" placeholder="Numero" onchange="app.updateCep(4)">
+                <button onclick="app.add_aux()">Confirma</button>
+            </div>
+
+             <button class="HomeButton3" id="insertAdressToHomePage"><img title="Ir para página inicial"
+              src="../Avatares/home.png"class="img3"  alt="Home icon"> </button>
+              <button class="HelpButton" id="insertAdressSup"> <img class="img4" 
+              src="../Avatares/help.png" alt="help icon"></button>
+              <div class="ppSup_InsertAdress" id="insertAdresPP">
+                <div class="popup">
+                   <div class="close" id="closePPinsertAdress">x</div>
+                    <div class="popup-content">
+                        <h2>Suporte</h2>
+                        <p class="p">Preencha os campos com os dados da residência a ser alterada no sistema.</p>
+                        <p class="p">Os campos possuem tipos de dados específicos. Digitar letras no campo de cep, por exemplo, faz com que o endereço não seja cadastrado</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+    
+    </div>
+
+    <div class="DeleteAdress">
+       <div class='header'>
+            <img class='img1' src="../Avatares/Map.png" alt="MapPointer">
+            <h1>Adição de endereço</h1>
+            <p>Insira os dados pedidos</p>
+            <form class="formulario">
+                
+                <div class="title_txtBox">
+                    <label for="rua">Endereço  da residência:</label> 
+                </div>
+
+                <div class="input_txtBox">
+                    <input class="txtBox" type="text" name="rua" id="ruaDeleteAdress">
+                </div>
+
+                <div class="title_txtBox">
+                    <label for="Número da residência">Número da residência:</label>
+                </div>
+
+
+                <div class="input_txtBox">
+                    <input class="txtBox" type="number" name="Número da residência" id="numDeleteAdress"> 
+                </div>
+
+
+                <div class="title_txtBox">
+                    <label for="cep_InsertAdress">CEP da residência:</label>
+                </div>
+
+
+                <div class="input_txtBox">
+                    <input class="txtBox" type="number" name="cep_InsertAdress" id="cepDeleteAdress"> 
+                </div>           
+                    
+
+                <div class="title_txtBox">
+                    <label for="cidade">Cidade:</label>
+                </div>
+
+                <div class="input_txtBox">
+                    <input class="txtBox" type="text" name="cidade" id="cidadeDeleteAdress">
+                </div>
+
+                <div class="title_txtBox"> <label>Estado da residência</label> </div>
+                    <select id="estadoDeleteAdress" name="estado"class="txtBox">
+                        <option selected disabled value="">Selecione</option>
+                        <option>Acre</option>
+                        <option>Alagoas</option>
+                        <option>Amapá</option>
+                        <option>Amazonas</option>
+                        <option>Bahia</option>
+                        <option>Ceará</option>
+                        <option>Distrito Federal</option>
+                        <option>Espírito Santo</option>
+                        <option>Goiás</option>
+                        <option>Maranhão</option>
+                        <option>Mato Grosso</option>
+                        <option>Mato Grosso do Sul</option>
+                        <option>Minas Gerais</option>
+                        <option>Pará</option>
+                        <option>Paraíba</option>
+                        <option>Paraná</option>
+                        <option>Pernambuco</option>
+                        <option>Piauí</option>
+                        <option>Rio de Janeiro</option>
+                        <option>Rio Grande do Norte</option>
+                        <option>Rio Grande do Sul</option>
+                        <option>Rondônia</option>
+                        <option>Roraima</option>
+                        <option>Santa Catarina</option>
+                        <option value="Sao Paulo">São Paulo</option>
+                        <option>Sergipe</option>
+                        <option>Tocantins</option>
+                        </select>
+                
+                    
+            </form>
+            <div>
+              <button class="botao1" id="botaoDeleteAdress" onclick="busca()">Remover</button>
+            </div>
+             <button class="HomeButton3" id="deleteAdressPage"><img title="Ir para página inicial"
+              src="../Avatares/home.png"class="img3"  alt="Home icon"> </button>
+              <button class="HelpButton" id="deleteAdressSup"> <img class="img4" 
+              src="../Avatares/help.png" alt="help icon"></button>
+            <div class="ppSup_DeleteAdress" id="deleteAdressPP">
+                <div class="popup">
+                    <div class="close" id="closePPDeleteAdress">x</div>
+                    <div class="popup-content">
+                        <h1 class="ppHeader">Suporte</h1>
+                        <p class="p">Preencha os campos com os dados da residência a ser retirada do sistema.</p>
+                    </div>
+                </div>
+            </div>
+               
+
+            </div>
+    
+    </div>
+
+    <div class="InsertResidence">
+       <div class='header'>
+            <img class='img1' src="../Avatares/Map.png" alt="MapPointer">
+            <h1>Consulta de residentes</h1>
+            <p>Insira os dados pedidos</p>
+            <div>Cep</div>
+            <input class="txtBox"" type="number" id="inputcep" oninput="app.updateResidentesLis()">
+            <div id="lista"><h3>Lista de moradores</h3></div>
+            <div> <button class="botao1" onclick="app.novo_residente()">Adicionar morador</button></div>
+           
+             <button class="HomeButton3" id="insertResidenceToHomePage"><img title="Ir para página inicial"
+              src="../Avatares/home.png"class="img3"  alt="Home icon"> </button>
+              <button class="HelpButton" id="insertResidenceSup"> <img class="img4" 
+              src="../Avatares/help.png" alt="help icon"></button>
+            <div class="ppSup_InsertResidence" id="insertResidencePP" >
+                <div class="popup">
+                    <div class="close" id="closeInsertResidencePP">x</div>
+                    <div class="popup-content">
+                        <h1 class="ppHeader">Suporte</h1>
+                        <p class="p">Preencha os campos com os dados do domicílio a ser modificado.
+                            * A idade máxima permitida é de 130 anos</p>
+                    </div>
+                </div>
+            </div>
+               
+
+            </div>
+    
+    </div>
+    <script src="../scripts/controlador.js" onload="window.app = new App()"></script>
+    <script src="../scripts/User.js"></script>
+    </body>
+</html>
